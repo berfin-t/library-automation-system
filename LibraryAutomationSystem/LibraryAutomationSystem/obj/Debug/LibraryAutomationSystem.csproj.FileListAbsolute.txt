@@ -1,0 +1,11 @@
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\bin\Debug\LibraryAutomationSystem.exe.config
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\bin\Debug\LibraryAutomationSystem.exe
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\bin\Debug\LibraryAutomationSystem.pdb
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.csproj.AssemblyReference.cache
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.csproj.SuggestedBindingRedirects.cache
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.Forms.FrmLoginScreen.resources
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.Properties.Resources.resources
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.csproj.GenerateResource.cache
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.csproj.CoreCompileInputs.cache
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.exe
+D:\github\library-automation-system\LibraryAutomationSystem\LibraryAutomationSystem\obj\Debug\LibraryAutomationSystem.pdb
