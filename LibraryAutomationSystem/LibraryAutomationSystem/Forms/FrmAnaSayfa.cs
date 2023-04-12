@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace LibraryAutomationSystem.Forms
         public FrmAnaSayfa()
         {
             InitializeComponent();
+        }
+        
+        private void PnlKitaplariListele_Click(object sender, EventArgs e)
+        {
+            FrmKitapListesi frm = new FrmKitapListesi();
+            frm.ShowDialog();
+            this.Hide();
         }
     }
 }

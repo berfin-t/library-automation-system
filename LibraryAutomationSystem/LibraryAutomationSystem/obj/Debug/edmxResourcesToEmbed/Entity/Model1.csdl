@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbLibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblKategoriler">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblKitaplar" Relationship="Self.FK_TblKitaplar_TblKategoriler" FromRole="TblKategoriler" ToRole="TblKitaplar" />
+  </EntityType>
+  <EntityType Name="TblKitaplar">
+    <Key>
+      <PropertyRef Name="KitapID" />
+    </Key>
+    <Property Name="KitapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KitapAd" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Yazar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Yayinevi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ISBN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SayfaSayisi" Type="Int32" />
+    <Property Name="Kategori" Type="Int32" />
+    <NavigationProperty Name="TblKategoriler" Relationship="Self.FK_TblKitaplar_TblKategoriler" FromRole="TblKitaplar" ToRole="TblKategoriler" />
+    <NavigationProperty Name="TblKullaniciKitap" Relationship="Self.FK_TblKullaniciKitap_TblKitaplar" FromRole="TblKitaplar" ToRole="TblKullaniciKitap" />
+    <NavigationProperty Name="TblStok" Relationship="Self.FK_TblStok_TblKitaplar" FromRole="TblKitaplar" ToRole="TblStok" />
+  </EntityType>
+  <EntityType Name="TblKullanici">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TelefonNo" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TblKullaniciKitap" Relationship="Self.FK_TblKullaniciKitap_TblKullanici" FromRole="TblKullanici" ToRole="TblKullaniciKitap" />
+  </EntityType>
+  <EntityType Name="TblKullaniciKitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciID" Type="Int32" />
+    <Property Name="KitapID" Type="Int32" />
+    <Property Name="OduncAlmaTarihi" Type="DateTime" Precision="0" />
+    <Property Name="OduncVermeTarihi" Type="DateTime" Precision="0" />
+    <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="TblKitaplar" Relationship="Self.FK_TblKullaniciKitap_TblKitaplar" FromRole="TblKullaniciKitap" ToRole="TblKitaplar" />
+    <NavigationProperty Name="TblKullanici" Relationship="Self.FK_TblKullaniciKitap_TblKullanici" FromRole="TblKullaniciKitap" ToRole="TblKullanici" />
+  </EntityType>
+  <EntityType Name="TblStok">
+    <Key>
+      <PropertyRef Name="StokID" />
+    </Key>
+    <Property Name="StokID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KitapID" Type="Int32" />
+    <Property Name="Adet" Type="Byte" />
+    <NavigationProperty Name="TblKitaplar" Relationship="Self.FK_TblStok_TblKitaplar" FromRole="TblStok" ToRole="TblKitaplar" />
+  </EntityType>
+  <Association Name="FK_TblKitaplar_TblKategoriler">
+    <End Role="TblKategoriler" Type="Self.TblKategoriler" Multiplicity="0..1" />
+    <End Role="TblKitaplar" Type="Self.TblKitaplar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKategoriler">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="TblKitaplar">
+        <PropertyRef Name="Kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblKullaniciKitap_TblKitaplar">
+    <End Role="TblKitaplar" Type="Self.TblKitaplar" Multiplicity="0..1" />
+    <End Role="TblKullaniciKitap" Type="Self.TblKullaniciKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKitaplar">
+        <PropertyRef Name="KitapID" />
+      </Principal>
+      <Dependent Role="TblKullaniciKitap">
+        <PropertyRef Name="KitapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblStok_TblKitaplar">
+    <End Role="TblKitaplar" Type="Self.TblKitaplar" Multiplicity="0..1" />
+    <End Role="TblStok" Type="Self.TblStok" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKitaplar">
+        <PropertyRef Name="KitapID" />
+      </Principal>
+      <Dependent Role="TblStok">
+        <PropertyRef Name="KitapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblKullaniciKitap_TblKullanici">
+    <End Role="TblKullanici" Type="Self.TblKullanici" Multiplicity="0..1" />
+    <End Role="TblKullaniciKitap" Type="Self.TblKullaniciKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKullanici">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="TblKullaniciKitap">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbLibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TblKategoriler" EntityType="Self.TblKategoriler" />
+    <EntitySet Name="TblKitaplar" EntityType="Self.TblKitaplar" />
+    <EntitySet Name="TblKullanici" EntityType="Self.TblKullanici" />
+    <EntitySet Name="TblKullaniciKitap" EntityType="Self.TblKullaniciKitap" />
+    <EntitySet Name="TblStok" EntityType="Self.TblStok" />
+    <AssociationSet Name="FK_TblKitaplar_TblKategoriler" Association="Self.FK_TblKitaplar_TblKategoriler">
+      <End Role="TblKategoriler" EntitySet="TblKategoriler" />
+      <End Role="TblKitaplar" EntitySet="TblKitaplar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblKullaniciKitap_TblKitaplar" Association="Self.FK_TblKullaniciKitap_TblKitaplar">
+      <End Role="TblKitaplar" EntitySet="TblKitaplar" />
+      <End Role="TblKullaniciKitap" EntitySet="TblKullaniciKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblStok_TblKitaplar" Association="Self.FK_TblStok_TblKitaplar">
+      <End Role="TblKitaplar" EntitySet="TblKitaplar" />
+      <End Role="TblStok" EntitySet="TblStok" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblKullaniciKitap_TblKullanici" Association="Self.FK_TblKullaniciKitap_TblKullanici">
+      <End Role="TblKullanici" EntitySet="TblKullanici" />
+      <End Role="TblKullaniciKitap" EntitySet="TblKullaniciKitap" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DbLibrarySystemModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DbLibrarySystemModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

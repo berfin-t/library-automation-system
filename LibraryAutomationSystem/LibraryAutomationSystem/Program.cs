@@ -16,7 +16,7 @@ namespace LibraryAutomationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.FrmLoginScreen());
+            Application.Run(new Forms.FrmKitapListesi());
         }
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89fca0245bd8493fa8216b9308fe262b" Name="Diagram1">
+        <EntityTypeShape EntityType="DbLibrarySystemModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibrarySystemModel.TblKategoriler" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibrarySystemModel.TblKitaplar" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibrarySystemModel.TblKullanici" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibrarySystemModel.TblKullaniciKitap" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibrarySystemModel.TblStok" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="DbLibrarySystemModel.FK_TblKitaplar_TblKategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibrarySystemModel.FK_TblKullaniciKitap_TblKitaplar" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibrarySystemModel.FK_TblStok_TblKitaplar" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibrarySystemModel.FK_TblKullaniciKitap_TblKullanici" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -43,10 +43,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Ink Free", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(427, 77);
+            this.label1.Size = new System.Drawing.Size(411, 77);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kütüphane Otomasyon Sistemi Giriş Ekranı";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,8 +55,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(109, 326);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(70, 321);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 25);
             this.label2.TabIndex = 2;
@@ -66,8 +66,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(109, 374);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(70, 369);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 25);
             this.label3.TabIndex = 3;
@@ -76,7 +76,7 @@
             // LLSifremiUnuttm
             // 
             this.LLSifremiUnuttm.AutoSize = true;
-            this.LLSifremiUnuttm.Location = new System.Drawing.Point(269, 402);
+            this.LLSifremiUnuttm.Location = new System.Drawing.Point(230, 397);
             this.LLSifremiUnuttm.Name = "LLSifremiUnuttm";
             this.LLSifremiUnuttm.Size = new System.Drawing.Size(137, 22);
             this.LLSifremiUnuttm.TabIndex = 4;
@@ -86,14 +86,14 @@
             // 
             // TxtMail
             // 
-            this.TxtMail.Location = new System.Drawing.Point(173, 323);
+            this.TxtMail.Location = new System.Drawing.Point(134, 318);
             this.TxtMail.Name = "TxtMail";
             this.TxtMail.Size = new System.Drawing.Size(233, 28);
             this.TxtMail.TabIndex = 5;
             // 
             // TxtSifre
             // 
-            this.TxtSifre.Location = new System.Drawing.Point(173, 371);
+            this.TxtSifre.Location = new System.Drawing.Point(134, 366);
             this.TxtSifre.Name = "TxtSifre";
             this.TxtSifre.Size = new System.Drawing.Size(233, 28);
             this.TxtSifre.TabIndex = 6;
@@ -101,7 +101,7 @@
             // BtnGirisYap
             // 
             this.BtnGirisYap.BackColor = System.Drawing.Color.ForestGreen;
-            this.BtnGirisYap.Location = new System.Drawing.Point(173, 456);
+            this.BtnGirisYap.Location = new System.Drawing.Point(134, 451);
             this.BtnGirisYap.Name = "BtnGirisYap";
             this.BtnGirisYap.Size = new System.Drawing.Size(233, 42);
             this.BtnGirisYap.TabIndex = 7;
@@ -123,8 +123,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            this.ClientSize = new System.Drawing.Size(448, 594);
+            this.BackColor = System.Drawing.Color.Tan;
+            this.ClientSize = new System.Drawing.Size(428, 594);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnGirisYap);
             this.Controls.Add(this.TxtSifre);
